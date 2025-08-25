@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Witterland</title>
+  
+  <!-- Favicon e Ícones -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgo8cmFkaWFsR3JhZGllbnQgaWQ9ImJnIiBjeD0iMzUlIiBjeT0iMzAlIiByPSI4MCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxNzI2Ii8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBhMGYxYSIvPgo8L3JhZGlhbEdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9IndhdmUiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzViNWJkNiIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2ZDM0ZmYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB4PSI0OCIgeT0iNDgiIHdpZHRoPSI0MTYiIGhlaWdodD0iNDE2IiByeD0iODQiIGZpbGw9InVybCgjYmcpIi8+CjxyZWN0IHg9IjQ4IiB5PSI0OCIgd2lkdGg9IjQxNiIgaGVpZ2h0PSI0MTYiIHJ4PSI4NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTQxYjI5IiBzdHJva2Utd2lkdGg9IjIiLz4KPHBvbHlsaW5lIHBvaW50cz0iOTYsMjg4IDE2MCwyODggMTc2LDI0MCAx
+OTIsMzM2IDIyNCwxNzYgMjU2LDM0NCAyODgsMTkyIDMwNCwzMjggMzUyLDI4OCA0MTYsMjg4IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjd2F2ZSkiIHN0cm9rZS13aWR0aD0iMjAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K">
+  <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgo8cmFkaWFsR3JhZGllbnQgaWQ9ImJnIiBjeD0iMzUlIiBjeT0iMzAlIiByPSI4MCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxNzI2Ii8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBhMGYxYSIvPgo8L3JhZGlhbEdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9IndhdmUiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzViNWJkNiIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2ZDM0ZmYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB4PSI0OCIgeT0iNDgiIHdpZHRoPSI0MTYiIGhlaWdodD0iNDE2IiByeD0iODQiIGZpbGw9InVybCgjYmcpIi8+CjxyZWN0IHg9IjQ4IiB5PSI0OCIgd2lkdGg9IjQxNiIgaGVpZ2h0PSI0MTYiIHJ4PSI4NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTQxYjI5IiBzdHJva2Utd2lkdGg9IjIiLz4KPHBvbHlsaW5lIHBvaW50cz0iOTYsMjg4IDE2MCwyODggMTc2LDI0MCAx
+OTIsMzM2IDIyNCwxNzYgMjU2LDM0NCAyODgsMTkyIDMwNCwzMjggMzUyLDI4OCA0MTYsMjg4IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjd2F2ZSkiIHN0cm9rZS13aWR0aD0iMjAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K">
+  <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgo8cmFkaWFsR3JhZGllbnQgaWQ9ImJnIiBjeD0iMzUlIiBjeT0iMzAlIiByPSI4MCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxNzI2Ii8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBhMGYxYSIvPgo8L3JhZGlhbEdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9IndhdmUiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzViNWJkNiIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2ZDM0ZmYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB4PSI0OCIgeT0iNDgiIHdpZHRoPSI0MTYiIGhlaWdodD0iNDE2IiByeD0iODQiIGZpbGw9InVybCgjYmcpIi8+CjxyZWN0IHg9IjQ4IiB5PSI0OCIgd2lkdGg9IjQxNiIgaGVpZ2h0PSI0MTYiIHJ4PSI4NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTQxYjI5IiBzdHJva2Utd2lkdGg9IjIiLz4KPHBvbHlsaW5lIHBvaW50cz0iOTYsMjg4IDE2MCwyODggMTc2LDI0MCAx
+OTIsMzM2IDIyNCwxNzYgMjU2LDM0NCAyODgsMTkyIDMwNCwzMjggMzUyLDI4OCA0MTYsMjg4IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjd2F2ZSkiIHN0cm9rZS13aWR0aD0iMjAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K">
+  <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgo8cmFkaWFsR3JhZGllbnQgaWQ9ImJnIiBjeD0iMzUlIiBjeT0iMzAlIiByPSI4MCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxNzI2Ii8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBhMGYxYSIvPgo8L3JhZGlhbEdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9IndhdmUiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzViNWJkNiIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2ZDM0ZmYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB4PSI0OCIgeT0iNDgiIHdpZHRoPSI0MTYiIGhlaWdodD0iNDE2IiByeD0iODQiIGZpbGw9InVybCgjYmcpIi8+CjxyZWN0IHg9IjQ4IiB5PSI0OCIgd2lkdGg9IjQxNiIgaGVpZ2h0PSI0MTYiIHJ4PSI4NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTQxYjI5IiBzdHJva2Utd2lkdGg9IjIiLz4KPHBvbHlsaW5lIHBvaW50cz0iOTYsMjg4IDE2MCwyODggMTc2LDI0MCAx
+OTIsMzM2IDIyNCwxNzYgMjU2LDM0NCAyODgsMTkyIDMwNCwzMjggMzUyLDI4OCA0MTYsMjg4IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjd2F2ZSkiIHN0cm9rZS13aWR0aD0iMjAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K">
+  <link rel="icon" type="image/png" sizes="16x16" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgo8cmFkaWFsR3JhZGllbnQgaWQ9ImJnIiBjeD0iMzUlIiBjeT0iMzAlIiByPSI4MCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYxNzI2Ii8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBhMGYxYSIvPgo8L3JhZGlhbEdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9IndhdmUiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzViNWJkNiIvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2ZDM0ZmYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB4PSI0OCIgeT0iNDgiIHdpZHRoPSI0MTYiIGhlaWdodD0iNDE2IiByeD0iODQiIGZpbGw9InVybCgjYmcpIi8+CjxyZWN0IHg9IjQ4IiB5PSI0OCIgd2lkdGg9IjQxNiIgaGVpZ2h0PSI0MTYiIHJ4PSI4NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTQxYjI5IiBzdHJva2Utd2lkdGg9IjIiLz4KPHBvbHlsaW5lIHBvaW50cz0iOTYsMjg4IDE2MCwyODggMTc2LDI0MCAx
+OTIsMzM2IDIyNCwxNzYgMjU2LDM0NCAyODgsMTkyIDMwNCwzMjggMzUyLDI4OCA0MTYsMjg4IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjd2F2ZSkiIHN0cm9rZS13aWR0aD0iMjAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K">
+  <link rel="manifest" href="/site.webmanifest">
+  
+  <!-- Meta Tags Básicas -->
+  <meta name="description" content="Descubra as melhores ofertas de tecnologia, gaming, smartphones e eletrônicos com curadoria especializada. Alternativa inteligente aos grupos de Telegram com ofertas verificadas e organizadas por categoria.">
+  <meta name="keywords" content="ofertas tecnologia, promoções eletrônicos, desconto smartphone, gaming barato, notebook oferta, curadoria ofertas, alternativa telegram ofertas, preços baixos tech, promoções verificadas, ofertas organizadas">
+  <meta name="author" content="Witterland">
+  <meta name="creator" content="Witterland">
+  <meta name="publisher" content="Witterland">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="bingbot" content="index, follow">
+  <meta name="language" content="pt-BR">
+  <meta name="geo.region" content="BR">
+  <meta name="geo.country" content="Brasil">
+  <meta name="distribution" content="global">
+  <meta name="rating" content="general">
+  <meta name="revisit-after" content="1 day">
+  
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Witterland">
+  <meta property="og:title" content="Witterland - As Melhores Ofertas de Tecnologia Escolhidas a Dedo">
+  <meta property="og:description" content="Descubra ofertas incríveis de smartphones, notebooks, gaming e eletrônicos com curadoria especializada. A melhor alternativa aos grupos de Telegram para encontrar promoções verificadas.">
+  <meta property="og:url" content="https://witterland.netlify.app/">
+  <meta property="og:image" content="https://witterland.netlify.app/og-image.jpg">
+  <meta property="og:image:secure_url" content="https://witterland.netlify.app/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Witterland - As melhores ofertas de tecnologia escolhidas a dedo">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:locale:alternate" content="pt_PT">
+  <meta property="article:author" content="Witterland">
+  <meta property="article:publisher" content="https://witterland.netlify.app/">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@witterland">
+  <meta name="twitter:creator" content="@witterland">
+  <meta name="twitter:title" content="Witterland - As Melhores Ofertas de Tecnologia Escolhidas a Dedo">
+  <meta name="twitter:description" content="Descubra ofertas incríveis de smartphones, notebooks, gaming e eletrônicos com curadoria especializada. A melhor alternativa aos grupos de Telegram.">
+  <meta name="twitter:image" content="https://witterland.netlify.app/og-image.jpg">
+  <meta name="twitter:image:alt" content="Witterland - As melhores ofertas de tecnologia escolhidas a dedo">
+  <meta name="twitter:domain" content="witterland.netlify.app">
+  <meta name="twitter:url" content="https://witterland.netlify.app/">
+  
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Witterland",
+    "alternateName": "Witterland - Ofertas de Tecnologia",
+    "url": "https://witterland.netlify.app/",
+    "description": "As melhores ofertas de tecnologia, gaming, smartphones e eletrônicos com curadoria especializada",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Witterland",
+      "url": "https://witterland.netlify.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://witterland.netlify.app/og-image.jpg"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://witterland.netlify.app/#ofertas?search={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
+    "sameAs": [
+      "https://instagram.com/witterland"
+    ]
+  }
+  </script>
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://witterland.netlify.app/">
+  
+  <!-- Preconnect para Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://sheets.googleapis.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  
+  <!-- Theme e Cores -->
+  <meta name="theme-color" content="#6d34ff">
+  <meta name="msapplication-TileColor" content="#6d34ff">
+  <meta name="msapplication-navbutton-color" content="#6d34ff">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Witterland">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Witterland">
+  
+  <!-- Segurança -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WC7FRX2M');</script>
+  <!-- End Google Tag Manager -->
+  
+  <!-- Preload recursos críticos -->
+  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+  
+  <!-- Fontes otimizadas: carregamento assíncrono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@600;800&family=Exo+2:wght@900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@600;800&family=Exo+2:wght@900&display=swap" rel="stylesheet"></noscript>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Outfit"', 'ui-sans-serif', 'system-ui'],
+            ui: ['"Inter"', 'ui-sans-serif', 'system-ui'],
+            brand: ['"Exo 2"', 'ui-sans-serif', 'system-ui'],
+          },
+          colors: {
+            bg: '#070812',
+            bg2: '#060915',
+            hero: '#080a18',
+            card: '#0b0f23',
+            ink: '#e8ecff',
+            dim: '#9aa3c7',
+            primary: '#6d34ff',
+            cyan: '#22d3ee',
+            whats: '#25D366'
+          },
+          boxShadow: {
+            glow: '0 0 16px rgba(109,52,255,.45), 0 0 28px rgba(34,211,238,.25)',
+            glowStrong: '0 8px 28px rgba(109,52,255,.45), 0 16px 64px rgba(34,211,238,.25)',
+            soft: '0 6px 16px rgba(0,0,0,.25)'
+          },
+          backgroundImage: {
+            heroGrid: 'radial-gradient(1200px 380px at 50% -60px, rgba(109,52,255,.22), transparent 60%), radial-gradient(900px 320px at 10% 10%, rgba(34,211,238,.12), transparent 60%), radial-gradient(900px 320px at 90% 10%, rgba(109,52,255,.12), transparent 60%)',
+            pill: 'linear-gradient(135deg, #6d34ff, #5b5bd6 60%, #22d3ee)',
+          },
+          keyframes: {
+            fadeIn: { '0%': {opacity:0, transform:'translateY(6px)'}, '100%': {opacity:1, transform:'translateY(0)'} },
+            neonPulse: {
+              '0%,100%': { textShadow: '0 0 4px rgba(109,52,255,.0), 0 0 8px rgba(34,211,238,.0)', filter: 'brightness(1)' },
+              '50%': { textShadow: '0 0 10px rgba(109,52,255,.45), 0 0 20px rgba(34,211,238,.35)', filter: 'brightness(1.06)' }
+            },
+            brandShimmer: {
+              '0%': { backgroundPosition: '-200% 0' },
+              '100%': { backgroundPosition: '200% 0' }
+            }
+          },
+          animation: {
+            fadeIn: 'fadeIn .5s ease',
+            neonPulse: 'neonPulse 2.6s ease-in-out infinite',
+            brandShimmer: 'brandShimmer 2.2s linear infinite',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html, body { scroll-behavior: smooth; }
+    :root{
+      --text:#e8ecff;
+      --text-dim:#9aa3c7;
+      --bg-dark:#060915;
+      --glow: 0 0 16px rgba(109,52,255,.45), 0 0 28px rgba(34,211,238,.25);
+      --glow-strong: 0 8px 28px rgba(109,52,255,.45), 0 16px 64px rgba(34,211,238,.25);
+    }
+    .glass { background: rgba(10,14,28,.6); backdrop-filter: blur(10px); }
+    .ring-focus:focus { box-shadow: 0 0 0 3px rgba(109,52,255,.35); outline: none; }
+
+    /* Marca: logo SVG intacta + nome em Exo 2 900 com animação */
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+    .logo{width:40px;height:40px;display:grid;place-items:center;transition:all .3s ease}
+    .logo:hover{transform:scale(1.05)}
+    .logo svg{width:100%;height:100%;filter:drop-shadow(0 0 8px rgba(120,120,255,.5))}
+    .title{
+      font-family:"Exo 2",sans-serif;
+      font-weight:900;
+      font-size:1.35rem;
+      letter-spacing:.4px;
+      background: linear-gradient(135deg, #ffffff, #b8c0ff 30%, #6d34ff 60%, #22d3ee 85%, #ffffff);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      background-size: 300% 100%;
+      animation: brandShimmer 2.2s linear infinite;
+      text-shadow: 0 0 10px rgba(34,211,238,.15);
+    }
+
+    /* Menu hamburger (estilo solicitado) */
+    .menu-toggle{display:none;flex-direction:column;cursor:pointer;padding:5px;z-index:1000}
+    .menu-toggle span{width:25px;height:3px;background:var(--text);margin:3px 0;transition:.3s;border-radius:2px}
+    .menu-toggle.active span:nth-child(1){transform:rotate(-45deg)translate(-5px,6px)}
+    .menu-toggle.active span:nth-child(2){opacity:0}
+    .menu-toggle.active span:nth-child(3){transform:rotate(45deg)translate(-5px,-6px)}
+    .nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+    .nav-links a{text-decoration:none;color:var(--text-dim);font-weight:600;font-size:.95rem;padding:8px 10px;border-radius:10px;transition:all .2s ease}
+    .nav-links a:hover{color:var(--text);background:rgba(139,92,246,.12);box-shadow:var(--glow)}
+    @media (max-width:768px){
+      .menu-toggle{display:flex}
+      .nav-links{
+        position:fixed;top:70px;left:-100%;width:100%;height:calc(100vh - 70px);
+        background:var(--bg-dark);flex-direction:column;justify-content:flex-start;align-items:center;
+        padding-top:2rem;transition:left .3s ease;z-index:999;border-top:1px solid rgba(139,92,246,.15)
+      }
+      .nav-links.active{left:0}
+      .nav-links a{font-size:1.1rem;padding:15px 20px;margin:10px 0}
+    }
+
+    /* Botões com gradiente neon e fonte um pouco mais grossa */
+    .btn-primary, .btn-secondary, .deal-btn {
+      background: linear-gradient(135deg, #6d34ff, #5b5bd6 60%, #22d3ee);
+      color: #ffffff !important;
+      border: none;
+      box-shadow: var(--glow-strong);
+      transition: transform .2s ease, filter .2s ease;
+      font-weight: 800;
+    }
+    .btn-primary:hover, .btn-secondary:hover, .deal-btn:hover { transform: scale(1.02); filter: brightness(1.05); }
+
+    /* Seção 2 sobrepondo a 1 suavemente */
+    .categories-wrap {
+      position: relative; margin-top: -56px;
+      border-top-left-radius: 36px; border-top-right-radius: 36px;
+      background: linear-gradient(180deg, rgba(6,9,21,1) 0%, rgba(5,8,18,1) 100%);
+      border-top: 1px solid rgba(255,255,255,.06);
+      box-shadow: 0 -10px 30px rgba(0,0,0,.35);
+    }
+
+    /* Cartões e containers com profundidade */
+    .hover-depth { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .hover-depth:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(0,0,0,.35), var(--glow); }
+
+    .animate-fadeIn { animation: fadeIn .5s ease; }
+
+    /* Espaço sutil entre título e descrição das categorias (um pouco maior) */
+    .category h3 { margin-bottom: 10px; } /* respiro suave */
+    .category p { margin-top: 0; }
+
+    /* Brilho suave para palavras em destaque no título */
+    .neon-highlight { text-shadow: 0 0 10px rgba(34,211,238,.35), 0 0 22px rgba(109,52,255,.25); }
+
+    /* Botão flutuante voltar ao topo */
+    #backToTop {
+      position: fixed; right: 16px; bottom: 20px; z-index: 1000;
+      opacity: 0; pointer-events: none; transform: translateY(8px);
+      transition: opacity .25s ease, transform .25s ease;
+    }
+    #backToTop.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+    /* Produtos ocultos inicialmente para paginação */
+    .deal-card.hidden-product { display: none !important; }
+
+    /* Otimizações para diferentes tamanhos de tela */
+    @media (max-width: 767px) {
+      .deal-card {
+        font-size: 0.8rem; /* Texto menor no mobile */
+      }
+      .deal-card h3 {
+        font-size: 0.9rem; /* Título compacto mobile */
+        line-height: 1.2;
+      }
+      .deal-card .description {
+        font-size: 0.75rem; /* Descrição bem pequena mobile */
+        line-height: 1.3;
+      }
+      .deal-card .p-4 {
+        padding: 0.75rem; /* Menos padding no mobile */
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .deal-card {
+        font-size: 0.9rem; /* Texto ligeiramente menor */
+      }
+      .deal-card h3 {
+        font-size: 1rem; /* Título mais compacto */
+        line-height: 1.3;
+      }
+      .deal-card .description {
+        font-size: 0.85rem; /* Descrição menor */
+        line-height: 1.4;
+      }
+    }
+
+    /* Imagens dos produtos */
+    .product-image {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    .product-image.error {
+      opacity: 0;
+    }
+
+    /* Categoria ASUS especial com animação */
+    .asus-category {
+      position: relative;
+      overflow: hidden;
+    }
+    .asus-category::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(220,38,38,0.1), transparent);
+      transform: rotate(45deg);
+      transition: transform 0.6s ease;
+      opacity: 0;
+    }
+    .asus-category:hover::before {
+      transform: rotate(45deg) translate(50%, 50%);
+      opacity: 1;
+    }
+    .asus-category:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 30px rgba(220,38,38,0.25), 0 0 60px rgba(0,0,0,0.4);
+      border-color: rgba(220,38,38,0.5);
+    }
+  </style>
+</head>
+<body class="bg-bg text-ink font-ui">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WC7FRX2M"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <!-- Header com novo menu -->
+  <header class="sticky top-0 z-50 transition-transform duration-300 glass border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-5 md:px-6">
+      <nav class="nav flex items-center justify-between py-4">
+        <!-- Marca com logo + nome Exo 2 (900) -->
+        <a href="#" class="brand" id="logoLink">
+          <div class="logo">
+            <svg viewBox="0 0 512 512" role="img" aria-label="Logo Witterland">
+              <defs>
+                <radialGradient id="bg" cx="35%" cy="30%" r="80%">
+                  <stop offset="0%" stop-color="#0f1726"/>
+                  <stop offset="100%" stop-color="#0a0f1a"/>
+                </radialGradient>
+                <linearGradient id="wave" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#5b5bd6"/>
+                  <stop offset="100%" stop-color="#6d34ff"/>
+                </linearGradient>
+                <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feOffset dx="0" dy="6" result="off"/>
+                  <feGaussianBlur in="off" stdDeviation="12" result="blur"/>
+                  <feComposite in="SourceGraphic" in2="blur" operator="arithmetic" k2="-1" k3="1" result="innershadow"/>
+                  <feColorMatrix in="innershadow" type="matrix"
+                    values="0 0 0 0 0
+                            0 0 0 0 0
+                            0 0 0 0 0
+                            0 0 0 .9 0" />
+                  <feBlend in="SourceGraphic" in2="innershadow" mode="normal"/>
+                </filter>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="4" result="b1"/>
+                  <feGaussianBlur in="b1" stdDeviation="8" result="b2"/>
+                  <feMerge>
+                    <feMergeNode in="b2"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+              <g filter="url(#innerShadow)">
+                <rect x="48" y="48" width="416" height="416" rx="84" fill="url(#bg)"/>
+                <rect x="48" y="48" width="416" height="416" rx="84" fill="none" stroke="#141b29" stroke-width="2"/>
+              </g>
+              <g filter="url(#glow)">
+                <polyline points="96,288 160,288 176,240 192,336 224,176 256,344 288,192 304,328 352,288 416,288"
+                  fill="none" stroke="url(#wave)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" opacity=".28"/>
+                <polyline points="96,288 160,288 176,240 192,336 224,176 256,344 288,192 304,328 352,288 416,288"
+                  fill="none" stroke="url(#wave)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+            </svg>
+          </div>
+          <span class="title">Witterland</span>
+        </a>
+
+        <!-- Toggle + links (com Sugestão e Compartilhar) -->
+        <div class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <a href="#categorias">Categorias</a>
+          <a href="#ofertas">Ofertas</a>
+          <a href="#contato">Sugestão</a>
+          <a href="#" id="menuShare">Compartilhar</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative bg-heroGrid overflow-hidden">
+    <div class="absolute inset-x-0 -top-24 mx-auto w-[900px] h-[900px] rounded-full bg-[radial-gradient(circle_at_center,rgba(34,211,238,.08),transparent_60%)] pointer-events-none"></div>
+    <div class="max-w-6xl mx-auto px-6 py-20 md:py-28 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-white/10 border border-white/15 text-white/80 mb-5 animate-pulse">
+Minha curadoria de recomendações • Sempre atualizado
+      </div>
+      <h1 class="font-display text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+        As <span class="text-transparent bg-clip-text bg-[linear-gradient(135deg,#a3e635,#22d3ee)] animate-neonPulse neon-highlight">melhores ofertas</span> escolhidas a dedo para <span class="text-transparent bg-clip-text bg-[linear-gradient(135deg,#22d3ee,#6d34ff)] animate-neonPulse neon-highlight">você</span>
+      </h1>
+      <p class="text-dim text-lg md:text-xl max-w-3xl mx-auto mt-4">Tecnologia, gaming, acessórios e muito mais. Encontre as melhores ofertas e fique por dentro das novidades mais quentes do mundo tech.</p>
+      <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mt-8">
+        <a href="#ofertas" class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl btn-primary">
+          Explorar Ofertas
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 3L4 14h7v7l9-11h-7V3z"/></svg>
+        </a>
+        <a href="#categorias" class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl btn-secondary">
+          Ver Categorias
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categorias (mais respiro e títulos mais fortes) -->
+  <section id="categorias" class="categories-wrap py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <h2 class="font-display text-3xl md:text-4xl font-extrabold">Categorias</h2>
+        <p class="text-dim mt-2">Escolha um tema e nós filtramos pra você</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <button class="category hover-depth rounded-2xl border border-white/10 bg-card p-7 text-center w-full animate-fadeIn" data-category="smartphones">
+          <div class="mx-auto rounded-xl grid place-items-center text-3xl mb-4 border border-white/10 shadow-glow" style="background-image: linear-gradient(135deg, #6d34ff, #5b5bd6 60%, #22d3ee); width:72px; height:72px;">
+            📱
+          </div>
+          <h3 class="font-extrabold text-xl">Smartphones</h3>
+          <p class="text-dim">Os melhores preços em smartphone, cases e gadgets móveis</p>
+        </button>
+
+        <button class="category hover-depth rounded-2xl border border-white/10 bg-card p-7 text-center w-full animate-fadeIn" data-category="computadores">
+          <div class="mx-auto rounded-xl grid place-items-center text-3xl mb-4 border border-white/10 shadow-glow" style="background-image: linear-gradient(135deg, #6d34ff, #5b5bd6 60%, #22d3ee); width:72px; height:72px;">
+            🖥️
+          </div>
+          <h3 class="font-extrabold text-xl">Computadores</h3>
+          <p class="text-dim">Ofertas em notebooks, componentes, monitores e periféricos para o seu setup</p>
+        </button>
+
+        <button class="category hover-depth rounded-2xl border border-white/10 bg-card p-7 text-center w-full animate-fadeIn" data-category="gaming">
+          <div class="mx-auto rounded-xl grid place-items-center text-3xl mb-4 border border-white/10 shadow-glow" style="background-image: linear-gradient(135deg, #6d34ff, #5b5bd6 60%, #22d3ee); width:72px; height:72px;">
+            🎮
+          </div>
+          <h3 class="font-extrabold text-xl">Gaming</h3>
+          <p class="text-dim">Consoles, headsets, cadeiras e acessórios gamer com preços imperdíveis</p>
+        </button>
+
+        <button class="category hover-depth rounded-2xl border border-white/10 bg-card p-7 text-center w-full animate-fadeIn" data-category="audio">
+          <div class="mx-auto rounded-xl grid place-items-center text-3xl mb-4 border border-white/10 shadow-glow" style="background-image: linear-gradient(135deg, #6d34ff, #5b5bd6 60%, #22d3ee); width:72px; height:72px;">
+            🎧
+          </div>
+          <h3 class="font-extrabold text-xl">Áudio</h3>
+          <p class="text-dim">Fones, soundbars e speakers com ótimo custo-benefício e qualidade</p>
+        </button>
+
+        <button class="category hover-depth rounded-2xl border border-white/10 bg-card p-7 text-center w-full animate-fadeIn" data-category="casa-inteligente">
+          <div class="mx-auto rounded-xl grid place-items-center text-3xl mb-4 border border-white/10 shadow-glow" style="background-image: linear-gradient(135deg, #6d34ff, #5b5bd6 60%, #22d3ee); width:72px; height:72px;">
+            🏠
+          </div>
+          <h3 class="font-extrabold text-xl">Casa Inteligente</h3>
+          <p class="text-dim">Assistentes, lâmpadas, plugs e automação para deixar sua casa mais prática</p>
+        </button>
+
+        <button class="category hover-depth rounded-2xl border border-white/10 bg-card p-7 text-center w-full animate-fadeIn" data-category="acessorios">
+          <div class="mx-auto rounded-xl grid place-items-center text-3xl mb-4 border border-white/10 shadow-glow" style="background-image: linear-gradient(135deg, #6d34ff, #5b5bd6 60%, #22d3ee); width:72px; height:72px;">
+            ⚡
+          </div>
+          <h3 class="font-extrabold text-xl">Acessórios</h3>
+          <p class="text-dim">Cabos, carregadores, suportes, hubs e tudo para o dia a dia</p>
+        </button>
+
+        <!-- Categoria ASUS Especial com gradiente vermelho -->
+        <button class="category asus-category hover-depth rounded-2xl border p-7 text-center w-full animate-fadeIn" data-category="asus" style="background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(220,38,38,0.08)); border-color: rgba(220,38,38,0.3); box-shadow: 0 0 20px rgba(220,38,38,0.15), 0 0 40px rgba(0,0,0,0.3);">
+          <div class="mx-auto rounded-xl grid place-items-center text-2xl mb-4 border shadow-glow relative overflow-hidden" style="background: linear-gradient(135deg, #dc2626, #ef4444 60%, #f87171); width:72px; height:72px; border-color: rgba(220,38,38,0.4);">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+            <span class="relative font-black text-white text-xs tracking-wider">ASUS</span>
+          </div>
+          <h3 class="font-extrabold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-300">ASUS</h3>
+          <p class="text-dim">Notebooks, placas-mãe, monitores e toda linha ASUS com qualidade premium</p>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ofertas (grid otimizado para 4 colunas) -->
+  <section id="ofertas" class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-8">
+        <h2 class="font-display text-3xl md:text-4xl font-extrabold">Ofertas em Destaque</h2>
+        <p class="text-dim mt-2">Use a busca e os filtros para afunilar</p>
+      </div>
+
+      <div class="rounded-2xl border border-white/10 bg-card p-5 mb-6 hover-depth">
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="flex flex-col gap-2">
+            <label class="text-sm text-dim">Faixa de Preço</label>
+            <div class="flex items-center gap-3">
+              <input id="minPrice" type="number" min="0" max="50000" value="0" class="w-28 rounded-xl border border-white/20 bg-white/10 px-3 py-2 ring-focus" placeholder="Min">
+              <span class="text-dim">até</span>
+              <input id="maxPrice" type="number" min="0" max="50000" value="50000" class="w-28 rounded-xl border border-white/20 bg-white/10 px-3 py-2 ring-focus" placeholder="Max">
+            </div>
+            <input id="priceRange" type="range" min="0" max="50000" value="50000" class="w-full accent-primary">
+            <div class="text-sm text-[#b7bfec]">Faixa: R$ <span id="displayMin">0</span> - R$ <span id="displayMax">50.000</span></div>
+            <button id="resetFilter" class="self-start mt-1 inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/20 text-white/90 hover:bg-white/5 transition">
+              Limpar Filtro
+            </button>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="text-sm text-dim">Buscar</label>
+            <div class="relative">
+              <input id="searchInput" type="text" placeholder="Ex.: headset gamer, echo dot, galaxy..." class="w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3 pr-12 ring-focus">
+              <button id="searchIcon" class="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 grid place-items-center rounded-lg text-ink/70 hover:bg-white/5 transition" aria-label="Buscar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cards otimizados: 2 colunas mobile, 3 tablet, 4 desktop -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 deals">
+        <!-- Os produtos serão carregados aqui automaticamente -->
+      </div>
+
+      <!-- Botão Carregar Mais -->
+      <div class="text-center mt-8">
+        <button id="loadMoreBtn" class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl btn-secondary">
+          Carregar Mais Ofertas
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+        </button>
+        <p class="text-dim text-sm mt-2" id="productCount">Mostrando 8 de 12 produtos</p>
+      </div>
+
+      <!-- Botão flutuante voltar ao topo (aparece nesta seção) -->
+      <button id="backToTop" class="rounded-full bg-white/10 border border-white/20 text-ink/90 hover:text-white hover:bg-white/15 shadow-soft px-3 py-2 text-sm flex items-center gap-2">
+        ↑ Início
+      </button>
+    </div>
+  </section>
+
+  <!-- Contato (Sistema de Feedback Funcional) -->
+  <section id="contato" class="py-16 md:py-20 bg-bg2">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-8">
+        <h2 class="font-display text-3xl md:text-4xl font-extrabold">Envie sua Sugestão</h2>
+        <p class="text-dim mt-2 text-sm">Tem alguma ideia, sugestão de melhoria, encontrou um bug ou quer sugerir uma oferta? Conte para nós!</p>
+      </div>
+      <div class="max-w-xl mx-auto rounded-2xl border border-white/10 bg-card p-6 md:p-8 hover-depth">
+        <!-- Formulário Funcional -->
+        <form id="feedbackForm" action="https://formsubmit.co/witterlland@gmail.com" method="POST" class="flex flex-col gap-5">
+          <!-- Configurações FormSubmit -->
+          <input type="hidden" name="_subject" value="Nova Sugestão - Witterland">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://witterland.netlify.app/obrigado">
+          
+          <div>
+            <label for="userName" class="block mb-2 font-semibold text-ink">Nome (opcional)</label>
+            <input 
+              id="userName" 
+              name="nome" 
+              type="text" 
+              placeholder="Seu nome" 
+              class="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 ring-focus text-ink placeholder-dim transition-colors duration-200 focus:border-primary/50"
+            >
+          </div>
+          
+
+          
+          <div>
+            <label for="feedbackCategory" class="block mb-2 font-semibold text-ink">Tipo de Feedback</label>
+            <select 
+              id="feedbackCategory" 
+              name="tipo" 
+              required 
+              class="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 ring-focus text-ink transition-colors duration-200 focus:border-primary/50"
+            >
+              <option value="">Selecione o tipo</option>
+              <option value="Sugestão de Produto/Oferta">Sugestão de Produto/Oferta</option>
+              <option value="Melhoria do Site">Melhoria do Site</option>
+              <option value="Nova Funcionalidade">Nova Funcionalidade</option>
+              <option value="Bug ou Erro">Bug ou Erro</option>
+              <option value="Feedback Geral">Feedback Geral</option>
+              <option value="Elogio">Elogio</option>
+            </select>
+          </div>
+          
+          <div>
+            <label for="feedbackMessage" class="block mb-2 font-semibold text-ink">Mensagem *</label>
+            <textarea 
+              id="feedbackMessage" 
+              name="mensagem" 
+              required 
+              minlength="10"
+              placeholder="Descreva sua sugestão, ideia, bug encontrado, melhoria desejada ou qualquer feedback que queira compartilhar..."
+              class="w-full min-h-[140px] rounded-xl border border-white/20 bg-white/10 px-4 py-3 ring-focus resize-y text-sm text-ink placeholder-dim transition-colors duration-200 focus:border-primary/50"
+            ></textarea>
+            <div class="flex justify-between items-center mt-1">
+              <div id="messageError" class="hidden text-red-400 text-sm flex items-center gap-1">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                </svg>
+                Mínimo de 10 caracteres
+              </div>
+              <div id="charCount" class="text-xs text-dim">0 caracteres</div>
+            </div>
+          </div>
+          
+          <button 
+            type="submit" 
+            id="submitBtn"
+            class="inline-flex justify-center items-center gap-2 px-6 py-3 rounded-2xl btn-primary transition-all duration-300 hover:shadow-glowStrong disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <span id="submitText">Enviar Sugestão</span>
+            <svg id="submitIcon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="transition-transform duration-300">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+            <div id="loadingSpinner" class="hidden animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
+          </button>
+          
+
+        </form>
+
+        <!-- Mensagem de Sucesso Animada -->
+        <div id="successMessage" class="hidden">
+          <div class="text-center p-8 rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/10 to-cyan/5 mt-6 animate-fadeIn">
+            <div class="mx-auto w-16 h-16 rounded-full bg-gradient-to-br from-primary to-cyan flex items-center justify-center mb-4 animate-pulse">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-primary text-2xl font-extrabold mb-2 animate-neonPulse">
+              Mensagem Enviada! 🚀
+            </h3>
+            <p class="text-ink mb-4">
+              Obrigado pelo seu feedback! Recebemos sua mensagem e vamos analisar com carinho.
+            </p>
+            <p class="text-dim text-sm">
+              Sua mensagem foi enviada com sucesso e será analisada em breve.
+            </p>
+            <button 
+              id="sendAnotherBtn"
+              class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-primary/30 text-primary hover:bg-primary/10 transition-colors duration-200"
+            >
+              Enviar Outra Sugestão
+            </button>
+          </div>
+        </div>
+
+        <!-- Mensagem de Erro -->
+        <div id="errorMessage" class="hidden">
+          <div class="text-center p-6 rounded-2xl border border-red-400/30 bg-red-400/10 mt-6 animate-fadeIn">
+            <div class="mx-auto w-12 h-12 rounded-full bg-red-400/20 flex items-center justify-center mb-3">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#ef4444">
+                <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+              </svg>
+            </div>
+            <h3 class="font-display text-red-400 text-xl font-extrabold mb-2">
+              Erro no Envio
+            </h3>
+            <p class="text-dim text-sm mb-4">
+              Houve um problema ao enviar sua mensagem. Tente novamente em alguns instantes.
+            </p>
+            <button 
+              id="retryBtn"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-red-400/30 text-red-400 hover:bg-red-400/10 transition-colors duration-200"
+            >
+              Tentar Novamente
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (Instagram sem rolar ao topo) + Compartilhar sem ícone -->
+  <footer class="bg-[#060914] border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 py-8">
+      <div class="flex flex-col items-center justify-center gap-3 mb-3">
+        <div class="flex items-center gap-2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="opacity-80" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.73-1.689.73-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <a href="#" class="text-dim hover:text-ink transition" id="instagramLink" aria-label="Instagram">Instagram</a>
+        </div>
+
+        <!-- Botão Compartilhar (texto discreto, sem símbolo) -->
+        <button id="shareWhatsapp" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-white/15 bg-white/5 text-ink/90 hover:text-white hover:bg-white/10">
+          Compartilhar
+        </button>
+      </div>
+      <p class="text-center text-dim text-sm mb-1">Contato: witterlland@gmail.com</p>
+      <p class="text-center text-dim text-sm">&copy; 2024 Witterland. Links de afiliado podem gerar comissões.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ===== INTEGRAÇÃO GOOGLE SHEETS =====
+    // CONFIGURAÇÃO: Dados reais configurados
+    const SHEET_API_KEY = 'AIzaSyC2XDBTIIAknbIDEouXX7mAoe36lWapByE'; // Sua API Key do Google Cloud Console
+    const SHEET_ID = '1QARyX_Cv728PNQafYem9DJkAhVROBn-gp63rzVkMPWQ'; // ID da sua planilha (da URL)
+    const SHEET_RANGE = 'A2:G1000'; // A partir da linha 2 (pula cabeçalho)
+    
+    let allProducts = [];
+    let visibleProducts = [];
+    let productsPerPage = 8; // Aumentado para 8 (2 linhas de 4)
+    let currentPage = 1;
+
+    // Função para buscar dados da planilha
+    async function fetchSheetData() {
+      try {
+        console.log('🔄 Carregando dados da planilha...');
+        const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_RANGE}?key=${SHEET_API_KEY}`;
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        
+        if (data.values && data.values.length > 0) {
+          console.log(`📊 ${data.values.length} linhas encontradas na planilha`);
+          
+          allProducts = data.values
+            .filter(row => row[0] && row[1]) // Filtra linhas com título (A) e preço (B)
+            .map((row, index) => {
+              // Processa o preço (coluna B)
+              let priceValue = row[1] || '0';
+              if (typeof priceValue === 'string') {
+                // Remove "R$", espaços, pontos de milhares e substitui vírgula por ponto
+                priceValue = priceValue
+                  .replace(/R\$\s*/g, '')
+                  .replace(/\s/g, '')
+                  .replace(/\./g, '')
+                  .replace(',', '.');
+              }
+              const price = parseFloat(priceValue) || 0;
+              
+              // Processa categoria (coluna C) - normaliza para minúsculas
+              let category = (row[2] || 'acessorios').toLowerCase().trim();
+              
+              // Mapeia variações de categoria para os nomes padrão
+              const categoryMap = {
+                'smartphone': 'smartphones',
+                'celular': 'smartphones',
+                'telefone': 'smartphones',
+                'computador': 'computadores',
+                'notebook': 'computadores',
+                'pc': 'computadores',
+                'game': 'gaming',
+                'games': 'gaming',
+                'jogo': 'gaming',
+                'jogos': 'gaming',
+                'gamer': 'gaming',
+                'som': 'audio',
+                'áudio': 'audio',
+                'fone': 'audio',
+                'headset': 'audio',
+                'casa inteligente': 'casa-inteligente',
+                'smart home': 'casa-inteligente',
+                'automação': 'casa-inteligente',
+                'acessório': 'acessorios',
+                'cabo': 'acessorios',
+                'carregador': 'acessorios',
+                // Categoria ASUS - aceita várias variações
+                'asus': 'asus',
+                'ASUS': 'asus',
+                'Asus': 'asus'
+              };
+              
+              category = categoryMap[category] || category;
+              
+              return {
+                id: index + 1,
+                title: row[0] || '', // Coluna A: Título
+                price: price, // Coluna B: Preço
+                category: category, // Coluna C: Categoria
+                description: row[3] || '', // Coluna D: Descrição
+                link: row[4] || '#', // Coluna E: Link
+                store: row[5] || 'Loja', // Coluna F: Loja
+                image: row[6] || '' // Coluna G: Imagem
+              };
+            });
+          
+          console.log(`✅ ${allProducts.length} produtos processados com sucesso`);
+          console.log('📋 Categorias encontradas:', [...new Set(allProducts.map(p => p.category))]);
+          
+          renderProducts();
+          updateProductCount();
+        } else {
+          console.warn('⚠️ Nenhum dado encontrado na planilha');
+          showFallbackProducts();
+        }
+      } catch (error) {
+        console.error('❌ Erro ao carregar planilha:', error);
+        console.error('🔧 Verifique se:');
+        console.error('   - A API Key está correta');
+        console.error('   - O Sheet ID está correto');
+        console.error('   - A planilha está pública ou compartilhada');
+        console.error('   - A Google Sheets API está habilitada');
+        showFallbackProducts();
+      }
+    }
+
+    // Função para renderizar produtos
+    function renderProducts() {
+      const container = document.querySelector('.deals');
+      if (!container) return;
+
+      // Limpa produtos existentes
+      container.innerHTML = '';
+
+      // Calcula produtos visíveis
+      const startIndex = 0;
+      const endIndex = currentPage * productsPerPage;
+      visibleProducts = allProducts.slice(startIndex, endIndex);
+
+      visibleProducts.forEach(product => {
+        const productCard = createProductCard(product);
+        container.appendChild(productCard);
+      });
+
+      // Atualiza botão "Carregar Mais"
+      updateLoadMoreButton();
+    }
+
+    // Função para criar card do produto (otimizado para 4 colunas)
+    function createProductCard(product) {
+      const card = document.createElement('div');
+      card.className = 'deal-card rounded-2xl border border-white/10 bg-card overflow-hidden flex flex-col animate-fadeIn hover-depth';
+      card.setAttribute('data-price', product.price);
+      card.setAttribute('data-category', product.category);
+      card.setAttribute('data-title', product.title.toLowerCase());
+
+      // Descrição mais curta para cards menores
+      const shortDesc = product.description.length > 70 
+        ? product.description.slice(0, 70).replace(/\s+\S*$/, '') + '...' 
+        : product.description;
+
+      card.innerHTML = `
+        ${product.image && product.image.trim() !== '' 
+          ? `<div class="w-full aspect-[4/3] relative overflow-hidden bg-white/5">
+               <img src="${product.image}" alt="${product.title}" class="product-image w-full h-full object-cover" style="opacity: 1;" onerror="this.style.opacity='0'; this.nextElementSibling.style.display='grid';">
+               <div class="absolute inset-0 grid place-items-center bg-white/5 text-2xl" style="display:none;">📦</div>
+             </div>`
+          : `<div class="w-full aspect-[4/3] grid place-items-center bg-white/5 text-2xl">📦</div>`
+        }
+        <div class="p-3 md:p-4 flex flex-col gap-2 flex-1">
+          <h3 class="font-semibold text-base leading-tight">${product.title}</h3>
+          <div class="font-extrabold text-[#b4c1ff] text-lg">R$ ${product.price.toLocaleString('pt-BR')}</div>
+          <p class="text-dim text-sm description flex-1" data-full="${product.description}">
+            ${shortDesc}
+          </p>
+          ${product.description.length > 70 
+            ? `<button class="see-more text-ink/80 hover:text-white text-xs underline underline-offset-4 self-start">Ver mais</button>`
+            : ''
+          }
+          <div class="flex items-center justify-between gap-2 mt-2">
+            <a href="${product.link}" target="_blank" rel="noopener" class="deal-btn inline-flex items-center gap-1 px-3 py-2 rounded-xl text-sm">Ver Oferta</a>
+            <span class="text-dim text-xs">${product.store}</span>
+          </div>
+        </div>
+      `;
+
+      // Adiciona evento "Ver mais" se necessário
+      const seeMoreBtn = card.querySelector('.see-more');
+      if (seeMoreBtn) {
+        seeMoreBtn.addEventListener('click', () => {
+          const p = seeMoreBtn.previousElementSibling;
+          const full = p.getAttribute('data-full') || '';
+          const isExpanded = seeMoreBtn.getAttribute('data-open') === '1';
+          
+          if (!isExpanded) {
+            p.textContent = full;
+            seeMoreBtn.textContent = 'Ver menos';
+            seeMoreBtn.setAttribute('data-open','1');
+          } else {
+            // Recalcula descrição curta baseada na descrição completa
+            const newShortDesc = full.length > 70 
+              ? full.slice(0, 70).replace(/\s+\S*$/, '') + '...' 
+              : full;
+            p.textContent = newShortDesc;
+            seeMoreBtn.textContent = 'Ver mais';
+            seeMoreBtn.setAttribute('data-open','0');
+          }
+        });
+      }
+
+      return card;
+    }
+
+    // Função para atualizar contador de produtos
+    function updateProductCount() {
+      const productCount = document.getElementById('productCount');
+      if (productCount) {
+        const showing = Math.min(currentPage * productsPerPage, allProducts.length);
+        productCount.textContent = `Mostrando ${showing} de ${allProducts.length} produtos`;
+      }
+    }
+
+    // Função para atualizar botão "Carregar Mais"
+    function updateLoadMoreButton() {
+      const loadMoreBtn = document.getElementById('loadMoreBtn');
+      if (!loadMoreBtn) return;
+
+      const hasMore = (currentPage * productsPerPage) < allProducts.length;
+      
+      if (hasMore) {
+        loadMoreBtn.style.display = 'inline-flex';
+        loadMoreBtn.textContent = 'Carregar Mais Ofertas';
+        loadMoreBtn.disabled = false;
+        loadMoreBtn.classList.remove('opacity-50');
+      } else {
+        loadMoreBtn.textContent = 'Todos os produtos carregados';
+        loadMoreBtn.classList.add('opacity-50');
+        loadMoreBtn.disabled = true;
+      }
+    }
+
+    // Produtos de fallback (caso a planilha não carregue)
+    function showFallbackProducts() {
+      allProducts = [
+        {
+          id: 1,
+          title: 'Smartphone Galaxy A54 128GB',
+          price: 1299,
+          category: 'smartphones',
+          description: 'Smartphone com câmera tripla de 50MP, tela Super AMOLED de 6.4", bateria de 5000mAh, resistência IP67, chipset eficiente e ótima performance para o dia a dia, fotos e jogos.',
+          link: '#',
+          store: 'Amazon',
+          image: ''
+        },
+        {
+          id: 2,
+          title: 'Notebook Gamer Acer Nitro 5',
+          price: 3499,
+          category: 'computadores',
+          description: 'Intel Core i5, 16GB RAM, SSD 512GB, GeForce RTX 3050, tela 15.6" Full HD 144Hz, teclado retroiluminado e refrigeração eficiente para longas sessões de jogo.',
+          link: '#',
+          store: 'Shopee',
+          image: ''
+        },
+        {
+          id: 3,
+          title: 'Headset Gamer HyperX Cloud II',
+          price: 359,
+          category: 'gaming',
+          description: 'Headset com som surround 7.1, microfone removível, estrutura resistente, cabo reforçado e conforto para várias horas de uso sem fadiga.',
+          link: '#',
+          store: 'AliExpress',
+          image: ''
+        },
+        {
+          id: 4,
+          title: 'Echo Dot 5ª Geração',
+          price: 279,
+          category: 'casa-inteligente',
+          description: 'Assistente virtual com Alexa, som melhorado, controle de dispositivos inteligentes e design compacto para qualquer ambiente.',
+          link: '#',
+          store: 'Amazon',
+          image: ''
+        }
+      ];
+      
+      console.log('⚠️ Usando produtos de fallback');
+      renderProducts();
+      updateProductCount();
+    }
+
+    // Sistema simples para imagens dos produtos
+    function setupProductImages() {
+      const images = document.querySelectorAll('.product-image');
+      images.forEach(img => {
+        img.style.opacity = '1';
+        img.addEventListener('error', function() {
+          this.style.opacity = '0';
+          const fallback = this.nextElementSibling;
+          if (fallback) fallback.style.display = 'grid';
+        });
+      });
+    }
+
+    // Inicializar quando a página carregar
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchSheetData();
+      setupProductImages();
+    });
+
+    // Scroll suave para âncoras internas
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href'); if (!href || href === '#') return;
+        e.preventDefault(); const target = document.querySelector(href); if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+
+    // Header hide/show no scroll
+    let lastY = window.scrollY;
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', ()=>{
+      if (window.scrollY > lastY && window.scrollY > 100) header.style.transform = 'translateY(-100%)';
+      else header.style.transform = 'translateY(0)';
+      lastY = window.scrollY;
+    });
+
+    // Logo leva ao topo suavemente
+    document.getElementById('logoLink').addEventListener('click', e=>{
+      e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'});
+    });
+
+    // Menu toggle (estilo solicitado) + bloqueio de scroll
+    const menuToggle=document.getElementById('menuToggle');
+    const navLinks=document.getElementById('navLinks');
+    menuToggle.addEventListener('click',()=>{
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      if(navLinks.classList.contains('active')){
+        document.body.style.overflow='hidden';
+      }else{
+        document.body.style.overflow='';
+      }
+    });
+    document.querySelectorAll('.nav-links a').forEach(link=>{
+      link.addEventListener('click',()=>{
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.style.overflow='';
+      });
+    });
+    document.addEventListener('click',(e)=>{
+      if(navLinks.classList.contains('active') && !e.target.closest('.nav-links') && !e.target.closest('.menu-toggle')){
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.style.overflow='';
+      }
+    });
+
+    // ===== FILTROS E BUSCA ATUALIZADOS =====
+    const minPrice = document.getElementById('minPrice');
+    const maxPrice = document.getElementById('maxPrice');
+    const slider = document.getElementById('priceRange');
+    const dMin = document.getElementById('displayMin');
+    const dMax = document.getElementById('displayMax');
+    const resetFilter = document.getElementById('resetFilter');
+    const searchInput = document.getElementById('searchInput');
+    const searchIcon = document.getElementById('searchIcon');
+
+    function updatePriceDisplay(){
+      if(!dMin || !dMax) return;
+      dMin.textContent = (parseInt(minPrice.value)||0).toLocaleString('pt-BR');
+      dMax.textContent = (parseInt(maxPrice.value)||50000).toLocaleString('pt-BR');
+    }
+
+    function applyFilters(){
+      const min = parseInt(minPrice.value)||0;
+      const max = parseInt(maxPrice.value)||50000;
+      const searchTerm = (searchInput.value||'').toLowerCase().trim();
+      
+      // Filtra produtos baseado nos critérios
+      const filteredProducts = allProducts.filter(product => {
+        const priceMatch = product.price >= min && product.price <= max;
+        const searchMatch = searchTerm === '' || 
+          product.title.toLowerCase().includes(searchTerm) || 
+          product.category.toLowerCase().includes(searchTerm) ||
+          product.description.toLowerCase().includes(searchTerm);
+        
+        return priceMatch && searchMatch;
+      });
+      
+      // Re-renderiza apenas os produtos filtrados
+      renderFilteredProducts(filteredProducts);
+    }
+
+    let currentFilteredProducts = []; // Armazena produtos filtrados atualmente
+
+    function renderFilteredProducts(products) {
+      const container = document.querySelector('.deals');
+      if (!container) return;
+
+      // Armazena os produtos filtrados para uso posterior
+      currentFilteredProducts = products;
+      
+      container.innerHTML = '';
+      
+      const productsToShow = products.slice(0, currentPage * productsPerPage);
+      
+      productsToShow.forEach(product => {
+        const productCard = createProductCard(product);
+        container.appendChild(productCard);
+      });
+
+      // Atualiza contador
+      const productCount = document.getElementById('productCount');
+      if (productCount) {
+        productCount.textContent = `Mostrando ${productsToShow.length} de ${products.length} produtos`;
+      }
+
+      // Atualiza botão carregar mais
+      const loadMoreBtn = document.getElementById('loadMoreBtn');
+      if (loadMoreBtn) {
+        const hasMore = productsToShow.length < products.length;
+        if (hasMore) {
+          loadMoreBtn.style.display = 'inline-flex';
+          loadMoreBtn.textContent = 'Carregar Mais Ofertas';
+          loadMoreBtn.disabled = false;
+          loadMoreBtn.classList.remove('opacity-50');
+        } else {
+          loadMoreBtn.textContent = 'Todos os produtos carregados';
+          loadMoreBtn.classList.add('opacity-50');
+          loadMoreBtn.disabled = true;
+        }
+      }
+
+      // Reaplica sistema de imagens para novos produtos
+      setupProductImages();
+    }
+
+    function filterByCategory(categoria) {
+      const filteredProducts = allProducts.filter(product => 
+        product.category.toLowerCase() === categoria.toLowerCase()
+      );
+      
+      console.log(`🔍 Filtrando por categoria: ${categoria}`);
+      console.log(`📦 Produtos da planilha:`, allProducts.map(p => `${p.title} - categoria: "${p.category}"`));
+      console.log(`📦 Produtos encontrados: ${filteredProducts.length}`);
+      
+      currentPage = 1; // Reset página
+      renderFilteredProducts(filteredProducts);
+      
+      // Reset filtros
+      if(minPrice && maxPrice){ 
+        minPrice.value=0; 
+        maxPrice.value=50000; 
+        slider.value=50000; 
+        updatePriceDisplay(); 
+      }
+      if(searchInput) searchInput.value = '';
+    }
+
+    // Event listeners para filtros
+    if(minPrice && maxPrice){
+      minPrice.addEventListener('input', ()=>{ updatePriceDisplay(); applyFilters(); });
+      maxPrice.addEventListener('input', ()=>{ slider.value=maxPrice.value; updatePriceDisplay(); applyFilters(); });
+      slider.addEventListener('input', ()=>{ maxPrice.value=slider.value; updatePriceDisplay(); applyFilters(); });
+      resetFilter.addEventListener('click', ()=>{
+        minPrice.value=0; maxPrice.value=50000; slider.value=50000; 
+        searchInput.value = '';
+        currentPage = 1;
+        currentFilteredProducts = []; // Limpa filtros de categoria
+        updatePriceDisplay();
+        renderProducts();
+      });
+      updatePriceDisplay();
+    }
+
+    // Busca
+    if(searchIcon && searchInput){
+      searchIcon.addEventListener('click', applyFilters);
+      searchInput.addEventListener('keypress', e=>{ if (e.key==='Enter') applyFilters(); });
+      searchInput.addEventListener('input', applyFilters); // Busca em tempo real
+    }
+
+    // Filtro por categoria
+    document.querySelectorAll('.category').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        const categoria = el.getAttribute('data-category');
+        document.getElementById('ofertas').scrollIntoView({behavior:'smooth'});
+        setTimeout(()=> filterByCategory(categoria), 350);
+      });
+    });
+
+    // Nota: Botões "Ver Oferta" e "Ver mais" agora são gerenciados dinamicamente na função createProductCard()
+
+    // Mostrar botão voltar ao topo ao entrar na seção de ofertas
+    const backToTop = document.getElementById('backToTop');
+    const ofertasSection = document.getElementById('ofertas');
+    function checkBackToTop(){
+      const rect = ofertasSection.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight * 0.6;
+      if (inView) backToTop.classList.add('show');
+      else backToTop.classList.remove('show');
+    }
+    window.addEventListener('scroll', checkBackToTop);
+    window.addEventListener('load', checkBackToTop);
+    backToTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+
+    // Instagram sem rolar ao topo
+    const insta = document.getElementById('instagramLink');
+    if (insta){
+      insta.addEventListener('click', (e)=>{ e.preventDefault(); /* coloque seu link real depois */ });
+    }
+
+    // Compartilhar via WhatsApp (botão do rodapé e link no menu)
+    function shareSite(){
+      const url = encodeURIComponent(window.location.href);
+      const txt = encodeURIComponent('Dá uma olhada no Witterland — ofertas que valem a pena: ');
+      const shareUrl = `https://wa.me/?text=${txt}${url}`;
+      window.open(shareUrl, '_blank', 'noopener');
+    }
+    const shareBtn = document.getElementById('shareWhatsapp');
+    if (shareBtn) shareBtn.addEventListener('click', shareSite);
+    const menuShare = document.getElementById('menuShare');
+    if (menuShare) menuShare.addEventListener('click', (e)=>{ e.preventDefault(); shareSite(); });
+
+    // ===== SISTEMA DE FEEDBACK FUNCIONAL =====
+    const feedbackForm = document.getElementById('feedbackForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const submitText = document.getElementById('submitText');
+    const submitIcon = document.getElementById('submitIcon');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    const sendAnotherBtn = document.getElementById('sendAnotherBtn');
+    const retryBtn = document.getElementById('retryBtn');
+    
+    // Elementos de validação
+    const feedbackMessage = document.getElementById('feedbackMessage');
+    const feedbackCategory = document.getElementById('feedbackCategory');
+    const messageError = document.getElementById('messageError');
+    const charCount = document.getElementById('charCount');
+
+    // Contador de caracteres
+    if (feedbackMessage && charCount) {
+      feedbackMessage.addEventListener('input', function() {
+        const length = this.value.length;
+        charCount.textContent = `${length} caracteres`;
+        
+        // Validação de comprimento mínimo
+        if (length > 0 && length < 10) {
+          messageError.classList.remove('hidden');
+          this.classList.add('border-red-400/50');
+        } else {
+          messageError.classList.add('hidden');
+          this.classList.remove('border-red-400/50');
+        }
+      });
+    }
+
+    // Estados do botão de envio
+    function setLoadingState(isLoading) {
+      if (isLoading) {
+        submitBtn.disabled = true;
+        submitText.textContent = 'Enviando...';
+        submitIcon.classList.add('hidden');
+        loadingSpinner.classList.remove('hidden');
+        submitBtn.classList.add('opacity-75');
+      } else {
+        submitBtn.disabled = false;
+        submitText.textContent = 'Enviar Sugestão';
+        submitIcon.classList.remove('hidden');
+        loadingSpinner.classList.add('hidden');
+        submitBtn.classList.remove('opacity-75');
+      }
+    }
+
+    // Função para mostrar mensagem de sucesso
+    function showSuccessMessage() {
+      feedbackForm.classList.add('hidden');
+      errorMessage.classList.add('hidden');
+      successMessage.classList.remove('hidden');
+      
+      // Scroll suave para a mensagem
+      successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Função para mostrar mensagem de erro
+    function showErrorMessage() {
+      errorMessage.classList.remove('hidden');
+      successMessage.classList.add('hidden');
+      setLoadingState(false);
+      
+      // Scroll suave para a mensagem de erro
+      errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Função para resetar formulário
+    function resetForm() {
+      feedbackForm.classList.remove('hidden');
+      successMessage.classList.add('hidden');
+      errorMessage.classList.add('hidden');
+      feedbackForm.reset();
+      charCount.textContent = '0 caracteres';
+      setLoadingState(false);
+    }
+
+    // Validação completa do formulário
+    function validateForm() {
+      let isValid = true;
+      
+      // Validar categoria (obrigatória)
+      if (!feedbackCategory.value) {
+        feedbackCategory.classList.add('border-red-400/50');
+        isValid = false;
+      } else {
+        feedbackCategory.classList.remove('border-red-400/50');
+      }
+      
+      // Validar mensagem (obrigatória, mín 10 chars)
+      if (!feedbackMessage.value || feedbackMessage.value.length < 10) {
+        messageError.classList.remove('hidden');
+        feedbackMessage.classList.add('border-red-400/50');
+        isValid = false;
+      } else {
+        messageError.classList.add('hidden');
+        feedbackMessage.classList.remove('border-red-400/50');
+      }
+      
+      return isValid;
+    }
+
+    // Envio do formulário
+    if (feedbackForm) {
+      feedbackForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Validar formulário
+        if (!validateForm()) {
+          // Focar no primeiro campo com erro
+          const firstError = feedbackForm.querySelector('.border-red-400\\/50');
+          if (firstError) {
+            firstError.focus();
+            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+          return;
+        }
+        
+        // Iniciar estado de carregamento
+        setLoadingState(true);
+        
+        try {
+          // Preparar dados do formulário
+          const formData = new FormData(feedbackForm);
+          
+          // Adicionar timestamp
+          const now = new Date();
+          formData.append('data_envio', now.toLocaleString('pt-BR'));
+          
+          // Enviar via FormSubmit
+          const response = await fetch(feedbackForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            // Sucesso - mostrar mensagem
+            setTimeout(() => {
+              showSuccessMessage();
+            }, 1000); // Delay para mostrar o loading
+          } else {
+            throw new Error('Erro na resposta do servidor');
+          }
+          
+        } catch (error) {
+          console.error('Erro ao enviar formulário:', error);
+          setTimeout(() => {
+            showErrorMessage();
+          }, 1000);
+        }
+      });
+    }
+
+    // Botão "Enviar Outra Sugestão"
+    if (sendAnotherBtn) {
+      sendAnotherBtn.addEventListener('click', resetForm);
+    }
+
+    // Botão "Tentar Novamente"
+    if (retryBtn) {
+      retryBtn.addEventListener('click', () => {
+        errorMessage.classList.add('hidden');
+        setLoadingState(false);
+      });
+    }
+
+    // Limpar erros ao focar nos campos
+    [feedbackCategory, feedbackMessage].forEach(field => {
+      if (field) {
+        field.addEventListener('focus', function() {
+          this.classList.remove('border-red-400/50');
+        });
+      }
+    });
+
+    // Funcionalidade Carregar Mais (atualizada para Google Sheets)
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', () => {
+        loadMoreBtn.textContent = 'Carregando...';
+        loadMoreBtn.disabled = true;
+        
+        setTimeout(() => {
+          currentPage++;
+          // Se há produtos filtrados, usa eles, senão usa todos
+          if (currentFilteredProducts.length > 0) {
+            renderFilteredProducts(currentFilteredProducts);
+          } else {
+            renderProducts();
+          }
+        }, 800);
+      });
+    }
+
+    // Fechar menu ao redimensionar para desktop
+    window.addEventListener('resize', ()=>{
+      if (window.innerWidth > 768){
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.style.overflow='';
+      }
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97475b6e02a3f20f',t:'MTc1NjA4NTc3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
