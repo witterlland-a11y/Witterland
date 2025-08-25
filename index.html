@@ -14,27 +14,27 @@ OTIsMzM2IDIyNCwxNzYgMjU2LDM0NCAyODgsMTkyIDMwNCwzMjggMzUyLDI4OCA0MTYsMjg4IiBmaWxs
 OTIsMzM2IDIyNCwxNzYgMjU2LDM0NCAyODgsMTkyIDMwNCwzMjggMzUyLDI4OCA0MTYsMjg4IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjd2F2ZSkiIHN0cm9rZS13aWR0aD0iMjAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K">
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Se você não gosta de grupos de oferta no Telegram, aqui é o seu lugar.">
+  <meta name="description" content="Se você não gosta de grupos de oferta no Telegram, aqui é o seu lugar. Tecnologia, gaming, acessórios e muito mais com curadoria especial.">
   <meta name="keywords" content="ofertas, preços baixos, promoções, desconto, telegram alternativa, curadoria ofertas, tecnologia barata">
   <meta name="author" content="Witterland">
   <meta name="robots" content="index, follow">
   
   <!-- Open Graph / Facebook / WhatsApp -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Witterland">
-  <meta property="og:description" content="Se você não gosta de grupos de oferta no Telegram, aqui é o seu lugar.">
+  <meta property="og:title" content="Witterland - As melhores ofertas escolhidas a dedo">
+  <meta property="og:description" content="Se você não gosta de grupos de oferta no Telegram, aqui é o seu lugar. Tecnologia, gaming, acessórios e muito mais com curadoria especial.">
   <meta property="og:image" content="https://witterland.netlify.app/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
   <meta property="og:url" content="https://witterland.netlify.app/">
   <meta property="og:site_name" content="Witterland">
   <meta property="og:locale" content="pt_BR">
   
-  <!-- Meta description adicional para garantir compatibilidade -->
-  <meta name="description" content="Se você não gosta de grupos de oferta no Telegram, aqui é o seu lugar. Tecnologia, gaming, acessórios e muito mais com curadoria especial.">
-  
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Witterland">
-  <meta name="twitter:description" content="Se você não gosta de grupos de oferta no Telegram, aqui é o seu lugar.">
+  <meta name="twitter:title" content="Witterland - As melhores ofertas escolhidas a dedo">
+  <meta name="twitter:description" content="Se você não gosta de grupos de oferta no Telegram, aqui é o seu lugar. Tecnologia, gaming, acessórios e muito mais com curadoria especial.">
   <meta name="twitter:image" content="https://witterland.netlify.app/og-image.png">
   
   <!-- Additional SEO -->
@@ -233,13 +233,13 @@ OTIsMzM2IDIyNCwxNzYgMjU2LDM0NCAyODgsMTkyIDMwNCwzMjggMzUyLDI4OCA0MTYsMjg4IiBmaWxs
       }
     }
 
-    /* Lazy loading para imagens */
-    img[loading="lazy"] {
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    img[loading="lazy"].loaded {
+    /* Imagens dos produtos */
+    .product-image {
       opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    .product-image.error {
+      opacity: 0;
     }
 
     /* Categoria ASUS especial com animação */
@@ -791,9 +791,11 @@ Minha curadoria de recomendações • Sempre atualizado
         : product.description;
 
       card.innerHTML = `
-        ${product.image 
-          ? `<img src="${product.image}" alt="${product.title}" class="w-full aspect-[4/3] object-cover" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-             <div class="w-full aspect-[4/3] grid place-items-center bg-white/5 text-2xl" style="display:none;">📦</div>`
+        ${product.image && product.image.trim() !== '' 
+          ? `<div class="w-full aspect-[4/3] relative overflow-hidden bg-white/5">
+               <img src="${product.image}" alt="${product.title}" class="product-image w-full h-full object-cover" style="opacity: 1;" onerror="this.style.opacity='0'; this.nextElementSibling.style.display='grid';">
+               <div class="absolute inset-0 grid place-items-center bg-white/5 text-2xl" style="display:none;">📦</div>
+             </div>`
           : `<div class="w-full aspect-[4/3] grid place-items-center bg-white/5 text-2xl">📦</div>`
         }
         <div class="p-3 md:p-4 flex flex-col gap-2 flex-1">
@@ -918,32 +920,23 @@ Minha curadoria de recomendações • Sempre atualizado
       updateProductCount();
     }
 
-    // Lazy loading para imagens
-    function setupLazyLoading() {
-      const images = document.querySelectorAll('img[loading="lazy"]');
-      
-      if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const img = entry.target;
-              img.onload = () => img.classList.add('loaded');
-              observer.unobserve(img);
-            }
-          });
+    // Sistema simples para imagens dos produtos
+    function setupProductImages() {
+      const images = document.querySelectorAll('.product-image');
+      images.forEach(img => {
+        img.style.opacity = '1';
+        img.addEventListener('error', function() {
+          this.style.opacity = '0';
+          const fallback = this.nextElementSibling;
+          if (fallback) fallback.style.display = 'grid';
         });
-
-        images.forEach(img => imageObserver.observe(img));
-      } else {
-        // Fallback para navegadores sem suporte
-        images.forEach(img => img.classList.add('loaded'));
-      }
+      });
     }
 
     // Inicializar quando a página carregar
     document.addEventListener('DOMContentLoaded', () => {
       fetchSheetData();
-      setupLazyLoading();
+      setupProductImages();
     });
 
     // Scroll suave para âncoras internas
@@ -1071,8 +1064,8 @@ Minha curadoria de recomendações • Sempre atualizado
         }
       }
 
-      // Reaplica lazy loading para novas imagens
-      setupLazyLoading();
+      // Reaplica sistema de imagens para novos produtos
+      setupProductImages();
     }
 
     function filterByCategory(categoria) {
@@ -1372,5 +1365,5 @@ Minha curadoria de recomendações • Sempre atualizado
       }
     });
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97461e29a6521cfb',t:'MTc1NjA3Mjc3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9746eb1cb4e264cc',t:'MTc1NjA4MTE3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
