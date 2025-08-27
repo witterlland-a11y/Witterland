@@ -70,9 +70,9 @@ OTIsMzM2IDIyNCwxNzYgMjU2LDM0NCAyODgsMTkyIDMwNCwzMjggMzUyLDI4OCA0MTYsMjg4IiBmaWxs
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Witterland",
-    "alternateName": "Witterland - Ofertas de Tecnologia",
+    "alternateName": "Witterland",
     "url": "https://witterland.netlify.app/",
-    "description": "As melhores ofertas de tecnologia, gaming, smartphones e eletrônicos com curadoria especializada",
+    "description": "O site ideal para você que não gosta de grupos de oferta no Telegram.",
     "publisher": {
       "@type": "Organization",
       "name": "Witterland",
@@ -320,31 +320,33 @@ OTIsMzM2IDIyNCwxNzYgMjU2LDM0NCAyODgsMTkyIDMwNCwzMjggMzUyLDI4OCA0MTYsMjg4IiBmaWxs
       opacity: 0;
     }
 
-    /* Categoria ASUS especial com animação */
-    .asus-category {
-      position: relative;
-      overflow: hidden;
-    }
-    .asus-category::before {
-      content: '';
+    /* Badge de desconto */
+    .discount-badge {
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(220,38,38,0.1), transparent);
-      transform: rotate(45deg);
-      transition: transform 0.6s ease;
-      opacity: 0;
+      top: 8px;
+      right: 8px;
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+      z-index: 10;
+      animation: pulse 2s infinite;
     }
-    .asus-category:hover::before {
-      transform: rotate(45deg) translate(50%, 50%);
-      opacity: 1;
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
     }
-    .asus-category:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 30px rgba(220,38,38,0.25), 0 0 60px rgba(0,0,0,0.4);
-      border-color: rgba(220,38,38,0.5);
+
+    /* Preço original riscado */
+    .original-price {
+      text-decoration: line-through;
+      color: #9aa3c7;
+      font-size: 0.85em;
+      font-weight: 400;
     }
   </style>
 </head>
@@ -497,16 +499,6 @@ Minha curadoria de recomendações • Sempre atualizado
           </div>
           <h3 class="font-extrabold text-xl">Acessórios</h3>
           <p class="text-dim">Cabos, carregadores, suportes, hubs e tudo para o dia a dia</p>
-        </button>
-
-        <!-- Categoria ASUS Especial com gradiente vermelho -->
-        <button class="category asus-category hover-depth rounded-2xl border p-7 text-center w-full animate-fadeIn" data-category="asus" style="background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(220,38,38,0.08)); border-color: rgba(220,38,38,0.3); box-shadow: 0 0 20px rgba(220,38,38,0.15), 0 0 40px rgba(0,0,0,0.3);">
-          <div class="mx-auto rounded-xl grid place-items-center text-2xl mb-4 border shadow-glow relative overflow-hidden" style="background: linear-gradient(135deg, #dc2626, #ef4444 60%, #f87171); width:72px; height:72px; border-color: rgba(220,38,38,0.4);">
-            <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
-            <span class="relative font-black text-white text-xs tracking-wider">ASUS</span>
-          </div>
-          <h3 class="font-extrabold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-300">ASUS</h3>
-          <p class="text-dim">Notebooks, placas-mãe, monitores e toda linha ASUS com qualidade premium</p>
         </button>
       </div>
     </div>
@@ -729,7 +721,7 @@ Minha curadoria de recomendações • Sempre atualizado
     // CONFIGURAÇÃO: Dados reais configurados
     const SHEET_API_KEY = 'AIzaSyC2XDBTIIAknbIDEouXX7mAoe36lWapByE'; // Sua API Key do Google Cloud Console
     const SHEET_ID = '1QARyX_Cv728PNQafYem9DJkAhVROBn-gp63rzVkMPWQ'; // ID da sua planilha (da URL)
-    const SHEET_RANGE = 'A2:G1000'; // A partir da linha 2 (pula cabeçalho)
+    const SHEET_RANGE = 'A2:H1000'; // A partir da linha 2 (pula cabeçalho) - incluindo coluna H
     
     let allProducts = [];
     let visibleProducts = [];
@@ -792,24 +784,39 @@ Minha curadoria de recomendações • Sempre atualizado
                 'automação': 'casa-inteligente',
                 'acessório': 'acessorios',
                 'cabo': 'acessorios',
-                'carregador': 'acessorios',
-                // Categoria ASUS - aceita várias variações
-                'asus': 'asus',
-                'ASUS': 'asus',
-                'Asus': 'asus'
+                'carregador': 'acessorios'
               };
               
               category = categoryMap[category] || category;
               
+              // Processa preço original (coluna H) para cálculo de desconto
+              let originalPriceValue = row[7] || '0';
+              if (typeof originalPriceValue === 'string') {
+                originalPriceValue = originalPriceValue
+                  .replace(/R\$\s*/g, '')
+                  .replace(/\s/g, '')
+                  .replace(/\./g, '')
+                  .replace(',', '.');
+              }
+              const originalPrice = parseFloat(originalPriceValue) || 0;
+              
+              // Calcula desconto se preço original for maior que preço atual
+              let discountPercent = 0;
+              if (originalPrice > 0 && originalPrice > price) {
+                discountPercent = Math.round(((originalPrice - price) / originalPrice) * 100);
+              }
+              
               return {
                 id: index + 1,
                 title: row[0] || '', // Coluna A: Título
-                price: price, // Coluna B: Preço
+                price: price, // Coluna B: Preço atual
                 category: category, // Coluna C: Categoria
                 description: row[3] || '', // Coluna D: Descrição
                 link: row[4] || '#', // Coluna E: Link
                 store: row[5] || 'Loja', // Coluna F: Loja
-                image: row[6] || '' // Coluna G: Imagem
+                image: row[6] || '', // Coluna G: Imagem
+                originalPrice: originalPrice, // Coluna H: Preço original
+                discountPercent: discountPercent // Calculado automaticamente
               };
             });
           
@@ -871,14 +878,24 @@ Minha curadoria de recomendações • Sempre atualizado
       card.innerHTML = `
         ${product.image && product.image.trim() !== '' 
           ? `<div class="w-full aspect-[4/3] relative overflow-hidden bg-white/5">
+               ${product.discountPercent > 0 ? `<div class="discount-badge">${product.discountPercent}% OFF</div>` : ''}
                <img src="${product.image}" alt="${product.title}" class="product-image w-full h-full object-cover" style="opacity: 1;" onerror="this.style.opacity='0'; this.nextElementSibling.style.display='grid';">
                <div class="absolute inset-0 grid place-items-center bg-white/5 text-2xl" style="display:none;">📦</div>
              </div>`
-          : `<div class="w-full aspect-[4/3] grid place-items-center bg-white/5 text-2xl">📦</div>`
+          : `<div class="w-full aspect-[4/3] relative grid place-items-center bg-white/5 text-2xl">
+               ${product.discountPercent > 0 ? `<div class="discount-badge">${product.discountPercent}% OFF</div>` : ''}
+               📦
+             </div>`
         }
         <div class="p-3 md:p-4 flex flex-col gap-2 flex-1">
           <h3 class="font-semibold text-base leading-tight">${product.title}</h3>
-          <div class="font-extrabold text-[#b4c1ff] text-lg">R$ ${product.price.toLocaleString('pt-BR')}</div>
+          <div class="flex flex-col gap-1">
+            ${product.originalPrice > 0 && product.discountPercent > 0 
+              ? `<div class="original-price text-sm">R$ ${product.originalPrice.toLocaleString('pt-BR')}</div>`
+              : ''
+            }
+            <div class="font-extrabold text-[#b4c1ff] text-lg">R$ ${product.price.toLocaleString('pt-BR')}</div>
+          </div>
           <p class="text-dim text-sm description flex-1" data-full="${product.description}">
             ${shortDesc}
           </p>
@@ -959,7 +976,9 @@ Minha curadoria de recomendações • Sempre atualizado
           description: 'Smartphone com câmera tripla de 50MP, tela Super AMOLED de 6.4", bateria de 5000mAh, resistência IP67, chipset eficiente e ótima performance para o dia a dia, fotos e jogos.',
           link: '#',
           store: 'Amazon',
-          image: ''
+          image: '',
+          originalPrice: 1599,
+          discountPercent: 19
         },
         {
           id: 2,
@@ -969,7 +988,9 @@ Minha curadoria de recomendações • Sempre atualizado
           description: 'Intel Core i5, 16GB RAM, SSD 512GB, GeForce RTX 3050, tela 15.6" Full HD 144Hz, teclado retroiluminado e refrigeração eficiente para longas sessões de jogo.',
           link: '#',
           store: 'Shopee',
-          image: ''
+          image: '',
+          originalPrice: 4299,
+          discountPercent: 19
         },
         {
           id: 3,
@@ -979,7 +1000,9 @@ Minha curadoria de recomendações • Sempre atualizado
           description: 'Headset com som surround 7.1, microfone removível, estrutura resistente, cabo reforçado e conforto para várias horas de uso sem fadiga.',
           link: '#',
           store: 'AliExpress',
-          image: ''
+          image: '',
+          originalPrice: 0,
+          discountPercent: 0
         },
         {
           id: 4,
@@ -989,7 +1012,9 @@ Minha curadoria de recomendações • Sempre atualizado
           description: 'Assistente virtual com Alexa, som melhorado, controle de dispositivos inteligentes e design compacto para qualquer ambiente.',
           link: '#',
           store: 'Amazon',
-          image: ''
+          image: '',
+          originalPrice: 349,
+          discountPercent: 20
         }
       ];
       
@@ -1439,5 +1464,5 @@ Minha curadoria de recomendações • Sempre atualizado
       }
     });
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974b60f7e3ecf1f5',t:'MTc1NjEyNzk0Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'975cc2859056f185',t:'MTc1NjMxMDE5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
